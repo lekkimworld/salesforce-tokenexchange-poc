@@ -11,7 +11,7 @@ Below I assume you have the following installed and you know how to work the ter
 * Java `keytool` (comes with a JDK)
 
 ## Configuration ## 
-Create a scratch, and configure it to allow Experience Cloud users to be created.
+Create a scratch org, and configure it to allow Experience Cloud users to be created.
 ```
 sf org create scratch --set-default -f config/project-scratch-def.json
 sf project deploy start -m Role
