@@ -1,0 +1,25 @@
+{
+  "orgName": "salesforce-tokenexchange-poc",
+  "edition": "Developer",
+  "country": "US",
+  "features": [
+    "Communities",
+    "Sites",
+    "EnableSetPasswordInApi"
+  ],
+  "settings": {
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "securitySettings": {},
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
+}
