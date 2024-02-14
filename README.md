@@ -1,5 +1,5 @@
 # salesforce-tokenexchange-poc #
-This repo describes how to configure Salesforce to use the token exchange flow and how to try it out against a user in an actual org. 
+This repo describes how to configure Salesforce to use the token exchange flow and how to try it out against a user in an actual org. The token exchange flow works by having an Apex handler in Salesforce that is called to validate the supplied token and return - or optionally create - a user matching the token in Salesforce. The Apex handler for this example can be found at `force-app/main/default/MyTokenExchangeHandler.cls` in this repo. The implementation validates an incoming JWT minted and signed outside Salesforce with a public key from Certificate and Key Management.
 
 ## Requirements ##
 Below I assume you have the following installed and you know how to work the terminal.
@@ -20,7 +20,7 @@ sf data update record -s User -w "Name='User User'" -v "LanguageLocaleKey=en_US 
 sf project deploy start -m ApexClass -m ApexComponent -m ApexPage -m Profile -m DigitalExperienceBundle -m DigitalExperienceConfig -m CustomSite -m Network -m Settings
 ```
 
-In Salesforce Setup go to Keys and Certificate Management and create a self-signed certificate in named `Demo Certificate` (API name: `Demo_Certificate`). From the list of certificates export the certificate and private key as a Java keystore and note the location. Below I assume it was saved as [org id].jks in `~/Downloads`.
+In Salesforce Setup go to Certificate and Key Management and create a self-signed certificate in named `Demo Certificate` (API name: `Demo_Certificate`). From the list of certificates export the certificate and private key as a Java keystore and note the location. Below I assume it was saved as [org id].jks in `~/Downloads`.
 
 Now and run the following commands to convert to PKCS12 format and extract the private key in PEM format from the PKCS12 file using OpenSSL (new file also saved in `~/Downloads`):
 ```
