@@ -58,5 +58,12 @@ MYCLIENT_ID=3MVG9L...mGgVtBU
 MYCLIENT_SECRET=54FF...C870
 MYDOMAIN=`sf org display --json | jq .result.instanceUrl -r`
 
-curl -X POST $MYDOMAIN/services/oauth2/token -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&subject_token=$MYJWT&subject_token_type=urn:ietf:params:oauth:token-type:jwt&client_id=$MYCLIENT_ID&client_secret=$MYCLIENT_SECRET&scope=api&token_handler=MyTokenExchangeHandler" -H "Content-Type: application/x-www-form-urlencoded" 
+curl -X POST $MYDOMAIN/services/oauth2/token \
+  -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange\
+  &subject_token=$MYJWT\
+  &subject_token_type=urn:ietf:params:oauth:token-type:jwt\
+  &client_id=$MYCLIENT_ID\
+  &client_secret=$MYCLIENT_SECRET\
+  &scope=api&token_handler=MyTokenExchangeHandler" \
+  -H "Content-Type: application/x-www-form-urlencoded" 
 ```
